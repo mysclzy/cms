@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../theme/1/jquery-easyui-themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="../theme/1/css/easyui-tabs.css">
 <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js"></script>
 <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
 <script type="text/javascript"  src="../theme/1/js/base.js"></script>
 <script type="text/javascript">
@@ -23,6 +24,11 @@ $(function(){
 });
 	
 </script>
+<style type="text/css">
+	.main{
+		font-family: 微软雅黑;font-size: 14px}
+</style>
+
 </head>
 
 <body>
@@ -58,7 +64,7 @@ $(function(){
                 </ul>
             </div>
             <!-- 内容区 -->
-            <div class="right">
+            <div class="right" style="padding:20px">
             	
             </div>
             <div class="clear"></div>

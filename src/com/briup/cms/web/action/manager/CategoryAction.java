@@ -15,6 +15,7 @@ public class CategoryAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String code;
+	private Long id;
 	
 	private ICategoryService categoryService 
 							= new CategoryServiceImpl();
@@ -25,6 +26,15 @@ public class CategoryAction extends ActionSupport {
 	public void addCategory(){
 		Category category = new Category(null, name, code);
 		categoryService.add(category);
+	}
+	
+	/**
+	 * 处理添加栏目信息的方法
+	 * */
+	@Action(value="delCategory")
+	public void delCategory(){
+		categoryService.delete(id);
+	
 	}
 	
 	
@@ -39,5 +49,13 @@ public class CategoryAction extends ActionSupport {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
