@@ -15,8 +15,6 @@ public class Article {
 	private Date publisurDate;	//发布日期
 	private Long c_id;	//栏目id
 	
-	
-	
 	public Article() {
 	}
 	
