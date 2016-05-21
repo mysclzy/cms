@@ -21,6 +21,8 @@ $(function(){
 		var url = $(this).attr("url");
 		$(".right").load(url);
 	});
+	
+	$(".baseUI li").filter(":first").trigger("click");
 });
 	
 </script>
@@ -55,7 +57,7 @@ $(function(){
                     <li url="toAddArticle.action"><a href="#">
                     	<em class="base_roll"></em><span>信息发布</span></a>
                     </li>
-                    <li><a href="#">
+                    <li url="toArticleManager.action"><a href="#">
                     	<em class="base_sys"></em><span>信息管理</span></a>
                     </li>
                     <li url="toAddStudent.action"><a href="#">

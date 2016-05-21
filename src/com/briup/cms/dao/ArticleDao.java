@@ -11,6 +11,32 @@ import com.briup.cms.bean.Article;
 import com.briup.cms.common.ConnectionFactory;
 
 public class ArticleDao  {
+	public void deleteById(long id){
+		try {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			try{
+				//获取连接
+				conn = ConnectionFactory.getConn();
+				String sql = "delete from t_article where id = ?";
+				//预处理sql
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setLong(1, id);
+				pstmt.executeUpdate();
+			}finally{
+				if(pstmt!=null){
+					pstmt.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public void save(Article article){
 		try {
 			Connection conn = null;

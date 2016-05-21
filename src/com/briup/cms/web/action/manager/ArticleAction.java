@@ -23,13 +23,17 @@ public class ArticleAction extends ActionSupport {
 								= new ArticleServiceImpl();
 	
 	private List<Category> categoryList;
+	private List<Article> articleList;
 	
+	private Long id;
 	private String title;
 	private String author;
 	private String content;
 	private Long c_id;
 	
-	
+	/**
+	 * 跳转到添加文章页面
+	 * */
 	@Action(value="toAddArticle",results={
 			@Result(name="success",location="/WEB-INF/jsp/manager/addArticle.jsp")
 	})
@@ -39,12 +43,32 @@ public class ArticleAction extends ActionSupport {
 	}
 	
 	/**
-	 * 添加栏目
+	 * 跳转到文章管理页面
+	 * */
+	@Action(value="toArticleManager",results={
+			@Result(name="success",location="/WEB-INF/jsp/manager/articleManager.jsp")
+	})
+	public String toArticleManager(){
+		//查询所有文章的信息
+		articleList = articleService.findAll();
+		return "success";
+	}
+	
+	/**
+	 * 添加文章
 	 * */
 	@Action("addArticle")
 	public void addArticle(){
 		Article article = new Article(null, title, author, content, new Date(), c_id);
 		articleService.add(article);
+	}
+
+	/**
+	 * 删除文章
+	 * */
+	@Action("delArticle")
+	public void delArticle(){
+		articleService.delete(id);
 	}
 
 	public List<Category> getCategoryList() {
@@ -84,5 +108,21 @@ public class ArticleAction extends ActionSupport {
 
 	public void setC_id(Long c_id) {
 		this.c_id = c_id;
+	}
+
+	public List<Article> getArticleList() {
+		return articleList;
+	}
+
+	public void setArticleList(List<Article> articleList) {
+		this.articleList = articleList;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

@@ -33,6 +33,20 @@ public class BaseAction extends ActionSupport {
 		list = categoryService.list();
 		return "success";
 	}
+	
+	@Action(value="toList",results={
+			@Result(name="success",location="/WEB-INF/jsp/list.jsp")})
+	public String toList(){
+		//查询所有栏目的信息
+		return "success";
+	}
+	
+	@Action(value="toContent",results={
+			@Result(name="success",location="/WEB-INF/jsp/content.jsp")})
+	public String toContent(){
+		//查询所有栏目的信息
+		return "success";
+	}
 	public List<Category> getList() {
 		return list;
 	}

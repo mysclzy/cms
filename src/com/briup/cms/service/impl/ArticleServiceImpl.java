@@ -20,7 +20,7 @@ public class ArticleServiceImpl implements IArticleService {
 
 	@Override
 	public void delete(long id) {
-		
+		articleDao.deleteById(id);
 	}
 
 	@Override
